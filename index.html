@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="日程提醒" />
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACoUlEQVR42u3dUU7qQBSA4TJhESW4Ardi4mJN3IorMGEbPpAoQQLVonPOnO9/Ml4fmOHrtHWKdzPP+0m6VDMFgkNwCA7BITgEh+AQHIJDcEhwCA7BITgEh+AQHIJDcAgOCQ7BITgEh+AQHIJDcAgOwSHBITj087bDjORweD9+sds9VH4Nd2wzwJ99+nxLTvvntyfCa3BaERzrDtkr3x/1NcAhOASH4BAcgkNwSHAIDsEhOASH+pZmyz77JtZZKXbzo+MYzEQuJXFxDM8iPpFGhvFmwlFNRthRN3Nk7DlwVJYRcAaaeeEjOg4yAs5GiFvZhXMxxieFEo03xyfehmFxOpz4i2WLfxgNJmP5uLrradlncGwfcBSVEX+MnXG4SYk8P80hZaRZrzkEh+AQHIJDcAgO6ay4G29+P2blEByCQ3AIDsEhJbuVrbNlP/k4pJxWBIfgEBwSHIJDcAgOwSE4BIfgEByCQzppawqmaXp6fvv+zdeXRziwuPZPlYk0Mtb/jJWjHAtLiAtSwbH6TFHw/NLI4AMOwfHHh36pxcPKITgEh+AQHIJDcPRv/f5IqR0WK4fguMehX21jtuLK8bv32Ja99FXRh32Oy8DCjZKyTwqWXjmWvOuVnyGt/oDxlSXE0+c+msCB04rgEByCQ3BcrM5/4xV2pJ1xlPrr9+nmpzmkjDHrNcfYPoKPrj+OmyvnqD5ujqv7OXebaB6HuUDJwn0zz3vz5VI09DWH25aAs9HMCBk57lb4CDUDzewYexocZX0EHHUzU8Yb/Va27C1u5MMgOo5RlaRYGtPgkGsOwSE4BIfgEBwSHIJDcAgOwSE4BIfgEByCQ3BIcAgOwSE4BIfgEByCQ3AIDgkOwSE4BIfgEByCQ3AIDsEhwSE4BIfu3wfQNrhuAPCNFAAAAABJRU5ErkJggg==" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACoUlEQVR42u3dUU7qQBSA4TJhESW4Ardi4mJN3IorMGEbPpAoQQLVonPOnO9/Ml4fmOHrtHWKdzPP+0m6VDMFgkNwCA7BITgEh+AQHIJDcEhwCA7BITgEh+AQHIJDcAgOCQ7BITgEh+AQHIJDcAgOwSHBITj087bDjORweD9+sds9VH4Nd2wzwJ99+nxLTvvntyfCa3BaERzrDtkr3x/1NcAhOASH4BAcgkNwSHAIDsEhOASH+pZmyz77JtZZKXbzo+MYzEQuJXFxDM8iPpFGhvFmwlFNRthRN3Nk7DlwVJYRcAaaeeEjOg4yAs5GiFvZhXMxxieFEo03xyfehmFxOpz4i2WLfxgNJmP5uLrradlncGwfcBSVEX+MnXG4SYk8P80hZaRZrzkEh+AQHIJDcAgO6ay4G29+P2blEByCQ3AIDsEhJbuVrbNlP/k4pJxWBIfgEBwSHIJDcAgOwSE4BIfgEByCQzppawqmaXp6fvv+zdeXRziwuPZPlYk0Mtb/jJWjHAtLiAtSwbH6TFHw/NLI4AMOwfHHh36pxcPKITgEh+AQHIJDcPRv/f5IqR0WK4fguMehX21jtuLK8bv32Ja99FXRh32Oy8DCjZKyTwqWXjmWvOuVnyGt/oDxlSXE0+c+msCB04rgEByCQ3BcrM5/4xV2pJ1xlPrr9+nmpzmkjDHrNcfYPoKPrj+OmyvnqD5ujqv7OXebaB6HuUDJwn0zz3vz5VI09DWH25aAs9HMCBk57lb4CDUDzewYexocZX0EHHUzU8Yb/Va27C1u5MMgOo5RlaRYGtPgkGsOwSE4BIfgEBwSHIJDcAgOwSE4BIfgEByCQ3BIcAgOwSE4BIfgEByCQ3AIDgkOwSE4BIfgEByCQ3AIDsEhwSE4BIfu3wfQNrhuAPCNFAAAAABJRU5ErkJggg==" />
+  <title>日程与提醒</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-sans: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #fafafa;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes sheetUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-sheet {
+      animation: sheetUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes softPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .dot-pulse {
+      animation: softPulse 2s ease-in-out infinite;
+    }
+
+    .modal-sheet {
+      max-height: 85vh;
+      max-height: 85dvh;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .safe-top {
+      padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+
+    .safe-fab {
+      bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+
+    input[type="date"],
+    input[type="time"] {
+      -webkit-appearance: none;
+      appearance: none;
+      display: block;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      min-height: 42px;
+    }
+
+    select {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      min-height: 42px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Mobile-First Centered App Shell -->
+  <div class="w-full max-w-lg mx-auto flex-1 flex flex-col min-h-screen bg-[#fafafa] sm:bg-white sm:shadow-sm sm:border-x sm:border-zinc-200/70">
+
+    <!-- Minimalist Sticky Header -->
+    <header class="sticky top-0 z-20 bg-[#fafafa]/90 sm:bg-white/90 backdrop-blur-md px-5 safe-top pb-3 border-b border-zinc-100">
+      <div class="flex items-center justify-between gap-3">
+        <div class="min-w-0">
+          <div class="flex items-baseline gap-2">
+            <h1 id="header-date-title" class="text-xl font-bold tracking-tight text-zinc-900">日程</h1>
+            <span id="live-clock" class="text-xs font-medium text-zinc-400 tabular-nums">加载中...</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1 shrink-0">
+          <button id="btn-toggle-search" type="button" aria-label="搜索日程" title="搜索"
+            class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 active:bg-zinc-200/70 transition">
+            <i data-lucide="search" class="w-[18px] h-[18px]"></i>
+          </button>
+          <button id="btn-toggle-calendar" type="button" aria-label="展开月历" title="切换月历"
+            class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 active:bg-zinc-200/70 transition">
+            <i data-lucide="calendar-days" class="w-[18px] h-[18px]"></i>
+          </button>
+          <button id="btn-open-settings" type="button" aria-label="提醒设置与备份" title="设置与导出"
+            class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 active:bg-zinc-200/70 transition">
+            <i data-lucide="sliders-horizontal" class="w-[18px] h-[18px]"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Search Bar -->
+      <div id="search-bar-wrap" class="hidden mt-3">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input id="search-input" type="text" placeholder="搜索日程标题或备注..."
+            class="w-full pl-9 pr-9 py-2 text-base sm:text-sm bg-zinc-100/80 border border-transparent rounded-xl focus:outline-none focus:bg-white focus:border-zinc-300 transition" />
+          <button id="btn-clear-search" type="button" aria-label="清空搜索"
+            class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-zinc-400 hover:text-zinc-600">
+            <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Compact 7-Day Week Strip (Default Mobile Calendar) -->
+      <div id="week-strip-wrap" class="mt-3.5">
+        <div id="week-strip" class="grid grid-cols-7 gap-1 text-center">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Expandable Full Month Calendar -->
+      <div id="month-calendar-wrap" class="hidden mt-3.5 pt-3 border-t border-zinc-100">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <span id="calendar-month-label" class="text-sm font-semibold text-zinc-800">2026年 11月</span>
+          <div class="flex items-center gap-1">
+            <button id="btn-cal-today" type="button"
+              class="px-2.5 py-1 text-xs font-medium text-indigo-600 hover:bg-indigo-50 rounded-full transition">
+              回今天
+            </button>
+            <button id="btn-cal-prev" type="button" aria-label="上个月"
+              class="w-7 h-7 flex items-center justify-center text-zinc-500 hover:bg-zinc-100 rounded-full transition">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+            <button id="btn-cal-next" type="button" aria-label="下个月"
+              class="w-7 h-7 flex items-center justify-center text-zinc-500 hover:bg-zinc-100 rounded-full transition">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center text-[11px] font-medium text-zinc-400 mb-1.5">
+          <div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
+        </div>
+        <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-xs">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 px-5 pt-4 pb-28 space-y-4">
+
+      <!-- Subtle Next Reminder Status Strip -->
+      <section id="next-reminder-bar" class="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-2xl bg-white border border-zinc-200/70 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="reminder-dot" class="w-2 h-2 rounded-full bg-indigo-500 shrink-0 dot-pulse"></span>
+          <div class="min-w-0">
+            <p id="next-reminder-title" class="text-xs font-semibold text-zinc-800 truncate">暂无待触发的提醒</p>
+            <p id="next-reminder-meta" class="text-[11px] text-zinc-400 truncate mt-0.5">点击右下角 + 添加日程</p>
+          </div>
+        </div>
+        <div class="shrink-0 text-right">
+          <div id="countdown-value" class="text-xs font-bold text-indigo-600 tabular-nums">--:--</div>
+          <div id="mini-stats" class="text-[10px] text-zinc-400 tabular-nums mt-0.5">今日 0 待办</div>
+        </div>
+      </section>
+
+      <!-- Minimalist View Tabs & Category Filter -->
+      <section class="space-y-2.5">
+        <div class="flex items-center justify-between gap-2">
+          <div id="view-tabs" class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <button data-view="today" type="button" class="view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition">今天</button>
+            <button data-view="selected" type="button" class="view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition">所选日</button>
+            <button data-view="upcoming" type="button" class="view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition">近7天</button>
+            <button data-view="all" type="button" class="view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition">全部</button>
+            <button data-view="completed" type="button" class="view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition">已完成</button>
+          </div>
+          <span id="list-summary" class="text-[11px] text-zinc-400 shrink-0 tabular-nums">0 项</span>
+        </div>
+
+        <div id="category-filters" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
+          <button data-cat="all" type="button" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium transition">全部</button>
+          <button data-cat="work" type="button" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium transition">工作</button>
+          <button data-cat="study" type="button" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium transition">学习</button>
+          <button data-cat="life" type="button" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium transition">生活</button>
+          <button data-cat="important" type="button" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium transition">重要</button>
+        </div>
+      </section>
+
+      <!-- Clean Schedule List -->
+      <section id="schedule-list" class="space-y-2.5">
+        <!-- Populated by JS -->
+      </section>
+    </main>
+  </div>
+
+  <!-- Floating Add Button (Thumb-Friendly) -->
+  <button id="btn-add-schedule" type="button" aria-label="新建日程"
+    class="fixed safe-fab right-5 sm:right-[max(1.5rem,calc(50%-15rem))] z-30 w-14 h-14 rounded-full bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 hover:bg-zinc-800 active:scale-95 transition flex items-center justify-center">
+    <i data-lucide="plus" class="w-6 h-6"></i>
+  </button>
+
+  <!-- Bottom Sheet: Add / Edit Schedule -->
+  <div id="modal-schedule" class="fixed inset-0 z-40 hidden items-end sm:items-center justify-center bg-zinc-900/40 backdrop-blur-[2px]">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl w-full max-w-lg modal-sheet flex flex-col overflow-hidden animate-sheet">
+      <div class="shrink-0 bg-white border-b border-zinc-100">
+        <div class="flex justify-center pt-2.5 pb-1 sm:hidden">
+          <div class="w-10 h-1 rounded-full bg-zinc-200"></div>
+        </div>
+        <div class="flex items-center justify-between px-5 py-3">
+          <h3 id="modal-title" class="text-base font-bold text-zinc-900">新建日程</h3>
+          <button id="btn-close-modal" type="button" aria-label="关闭"
+            class="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:bg-zinc-100 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <form id="schedule-form" class="flex-1 overflow-y-auto overscroll-contain p-5 space-y-4">
+        <input type="hidden" id="field-id" />
+
+        <div>
+          <input id="field-title" type="text" required maxlength="80" placeholder="输入日程内容..."
+            class="w-full px-0 py-2 text-base font-medium text-zinc-900 placeholder:text-zinc-400 border-b border-zinc-200 focus:outline-none focus:border-zinc-900 transition bg-transparent rounded-none" />
+        </div>
+
+        <div class="min-w-0">
+          <label for="field-date" class="block text-[11px] font-medium text-zinc-400 mb-1">日期</label>
+          <input id="field-date" type="date" required
+            class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="min-w-0 overflow-hidden">
+            <label for="field-time" class="block text-[11px] font-medium text-zinc-400 mb-1">开始时间</label>
+            <input id="field-time" type="time" required
+              class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400" />
+          </div>
+          <div class="min-w-0 overflow-hidden">
+            <label for="field-end-time" class="block text-[11px] font-medium text-zinc-400 mb-1">结束时间（可选）</label>
+            <input id="field-end-time" type="time"
+              class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400" />
+          </div>
+        </div>
+
+        <div class="min-w-0">
+          <label for="field-remind" class="block text-[11px] font-medium text-zinc-400 mb-1">提醒</label>
+          <select id="field-remind"
+            class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400">
+            <option value="0">准时提醒</option>
+            <option value="5">提前 5 分钟</option>
+            <option value="15" selected>提前 15 分钟</option>
+            <option value="30">提前 30 分钟</option>
+            <option value="60">提前 1 小时</option>
+            <option value="-1">不提醒</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="min-w-0">
+            <label for="field-category" class="block text-[11px] font-medium text-zinc-400 mb-1">分类</label>
+            <select id="field-category"
+              class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400">
+              <option value="work">工作</option>
+              <option value="study">学习</option>
+              <option value="life">生活</option>
+              <option value="important">重要</option>
+            </select>
+          </div>
+          <div class="min-w-0">
+            <label for="field-repeat" class="block text-[11px] font-medium text-zinc-400 mb-1">重复</label>
+            <select id="field-repeat"
+              class="w-full min-w-0 px-3 py-2 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400">
+              <option value="none">不重复</option>
+              <option value="daily">每天</option>
+              <option value="weekly">每周</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="field-notes" class="block text-[11px] font-medium text-zinc-400 mb-1">备注</label>
+          <textarea id="field-notes" rows="2" maxlength="300" placeholder="地点、链接或补充说明（可选）"
+            class="w-full px-3 py-2.5 text-base sm:text-sm bg-zinc-50 border border-zinc-200/80 rounded-xl focus:outline-none focus:bg-white focus:border-zinc-400 resize-none"></textarea>
+        </div>
+
+        <div class="flex items-center gap-2.5 pt-2 pb-2">
+          <button id="btn-cancel-modal" type="button"
+            class="flex-1 py-3 text-sm font-medium text-zinc-600 bg-zinc-100 hover:bg-zinc-200/70 rounded-xl transition">
+            取消
+          </button>
+          <button type="submit"
+            class="flex-[2] py-3 text-sm font-semibold bg-zinc-900 text-white hover:bg-zinc-800 rounded-xl transition">
+            保存日程
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet: Settings & Backup -->
+  <div id="modal-settings" class="fixed inset-0 z-40 hidden items-end sm:items-center justify-center bg-zinc-900/40 backdrop-blur-[2px]">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl w-full max-w-lg animate-sheet">
+      <div class="flex justify-center pt-2.5 pb-1 sm:hidden">
+        <div class="w-10 h-1 rounded-full bg-zinc-200"></div>
+      </div>
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-zinc-100">
+        <h3 class="text-base font-bold text-zinc-900">提醒设置与数据</h3>
+        <button id="btn-close-settings" type="button" aria-label="关闭设置"
+          class="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:bg-zinc-100 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4">
+        <!-- Reminder Preferences -->
+        <div class="space-y-2">
+          <div class="text-[11px] font-medium text-zinc-400 px-1">提醒方式</div>
+          <div class="bg-zinc-50 rounded-2xl divide-y divide-zinc-200/60 overflow-hidden">
+            <button id="btn-sound-toggle" type="button"
+              class="w-full px-4 py-3.5 flex items-center justify-between text-sm text-zinc-800 hover:bg-zinc-100/70 transition">
+              <span class="flex items-center gap-2.5 font-medium">
+                <i id="icon-sound" data-lucide="volume-2" class="w-4 h-4 text-indigo-600"></i>
+                提醒提示音
+              </span>
+              <span id="label-sound" class="text-xs font-semibold text-indigo-600">已开启</span>
+            </button>
+
+            <button id="btn-notify-toggle" type="button"
+              class="w-full px-4 py-3.5 flex items-center justify-between text-sm text-zinc-800 hover:bg-zinc-100/70 transition">
+              <span class="flex items-center gap-2.5 font-medium">
+                <i id="icon-notify" data-lucide="bell" class="w-4 h-4 text-zinc-500"></i>
+                浏览器通知
+              </span>
+              <span id="label-notify" class="text-xs font-medium text-zinc-400">未开启</span>
+            </button>
+
+            <button id="btn-test-reminder" type="button"
+              class="w-full px-4 py-3.5 flex items-center justify-between text-sm text-zinc-800 hover:bg-zinc-100/70 transition">
+              <span class="flex items-center gap-2.5 font-medium">
+                <i data-lucide="bell-ring" class="w-4 h-4 text-amber-500"></i>
+                测试提醒效果
+              </span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Backup & Calendar Export -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-[11px] font-medium text-zinc-400">本地备份与导出</span>
+            <span class="text-[11px] text-emerald-600 font-medium">已自动保存</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="btn-export-json" type="button"
+              class="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-medium bg-zinc-50 border border-zinc-200/80 text-zinc-700 hover:bg-zinc-100 transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              导出 JSON
+            </button>
+            <button id="btn-import-json" type="button"
+              class="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-medium bg-zinc-50 border border-zinc-200/80 text-zinc-700 hover:bg-zinc-100 transition">
+              <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+              导入 JSON
+            </button>
+            <button id="btn-export-ics" type="button"
+              class="col-span-2 flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-semibold bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition">
+              <i data-lucide="calendar-arrow-down" class="w-3.5 h-3.5"></i>
+              导出到手机日历 (.ics)
+            </button>
+          </div>
+          <input id="input-import-file" type="file" accept=".json,application/json" class="hidden" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active Reminder Alert Modal -->
+  <div id="modal-reminder" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-zinc-900/50 backdrop-blur-[2px] p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl w-full max-w-md p-6 text-center animate-sheet">
+      <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-3.5">
+        <i data-lucide="bell-ring" class="w-6 h-6"></i>
+      </div>
+      <div class="text-xs font-semibold text-indigo-600 mb-1">日程提醒</div>
+      <h3 id="reminder-modal-title" class="text-lg font-bold text-zinc-900 mb-1">日程标题</h3>
+      <p id="reminder-modal-time" class="text-xs font-medium text-zinc-500 mb-3"></p>
+      <p id="reminder-modal-notes" class="text-xs text-zinc-600 bg-zinc-50 rounded-xl p-3 mb-5 hidden text-left"></p>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <button id="btn-reminder-snooze" type="button"
+          class="py-3 rounded-xl text-sm font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200/70 transition">
+          5分钟后提醒
+        </button>
+        <button id="btn-reminder-done" type="button"
+          class="py-3 rounded-xl text-sm font-semibold bg-zinc-900 text-white hover:bg-zinc-800 transition">
+          标记完成
+        </button>
+      </div>
+      <button id="btn-reminder-dismiss" type="button"
+        class="mt-2.5 w-full py-2 text-xs font-medium text-zinc-400 hover:text-zinc-600 transition">
+        知道了
+      </button>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="modal-confirm" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-zinc-900/40 backdrop-blur-[2px] p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-2xl shadow-xl w-full max-w-sm p-5 animate-sheet">
+      <h3 class="text-base font-bold text-zinc-900">删除这条日程？</h3>
+      <p id="confirm-message" class="text-xs text-zinc-500 mt-1.5">删除后无法恢复。</p>
+      <div class="grid grid-cols-2 gap-2.5 mt-5">
+        <button id="btn-confirm-cancel" type="button"
+          class="py-2.5 text-sm font-medium text-zinc-600 bg-zinc-100 hover:bg-zinc-200/70 rounded-xl transition">
+          取消
+        </button>
+        <button id="btn-confirm-ok" type="button"
+          class="py-2.5 text-sm font-semibold bg-rose-600 text-white hover:bg-rose-700 rounded-xl transition">
+          删除
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none w-[90%] max-w-sm"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const STORAGE_KEY = 'smart_schedule_reminder_v1';
+      const SETTINGS_KEY = 'smart_schedule_settings_v1';
+
+      const CATEGORY_META = {
+        work: { label: '工作', dot: 'bg-blue-500', text: 'text-blue-600' },
+        study: { label: '学习', dot: 'bg-violet-500', text: 'text-violet-600' },
+        life: { label: '生活', dot: 'bg-emerald-500', text: 'text-emerald-600' },
+        important: { label: '重要', dot: 'bg-rose-500', text: 'text-rose-600' }
+      };
+
+      const REMIND_LABELS = {
+        '-1': '不提醒',
+        '0': '准时',
+        '5': '提前5分',
+        '15': '提前15分',
+        '30': '提前30分',
+        '60': '提前1小时'
+      };
+
+      const REPEAT_LABELS = {
+        none: '',
+        daily: '每天',
+        weekly: '每周'
+      };
+
+      const WEEKDAYS_SHORT = ['日', '一', '二', '三', '四', '五', '六'];
+
+      // --- Date / Time Helpers ---
+      function pad(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function formatDateStr(d) {
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      }
+
+      function formatTimeStr(d) {
+        return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+      }
+
+      function parseScheduleDateTime(dateStr, timeStr) {
+        const [y, m, day] = dateStr.split('-').map(Number);
+        const [h, min] = timeStr.split(':').map(Number);
+        return new Date(y, m - 1, day, h, min, 0, 0);
+      }
+
+      function parseDateStr(dateStr) {
+        const [y, m, d] = dateStr.split('-').map(Number);
+        return new Date(y, m - 1, d);
+      }
+
+      function getReminderTimestamp(item) {
+        if (item.completed || Number(item.remindMinutes) < 0) return null;
+        if (item.snoozedUntil) return Number(item.snoozedUntil);
+        const start = parseScheduleDateTime(item.date, item.time);
+        return start.getTime() - Number(item.remindMinutes) * 60 * 1000;
+      }
+
+      function addDaysToDateStr(dateStr, days) {
+        const [y, m, d] = dateStr.split('-').map(Number);
+        const dt = new Date(y, m - 1, d + days);
+        return formatDateStr(dt);
+      }
+
+      function formatCountdown(ms) {
+        if (ms <= 0) return '即将触发';
+        const totalSec = Math.floor(ms / 1000);
+        const days = Math.floor(totalSec / 86400);
+        const hours = Math.floor((totalSec % 86400) / 3600);
+        const mins = Math.floor((totalSec % 3600) / 60);
+        const secs = totalSec % 60;
+        if (days > 0) return `${days}天${hours}时`;
+        if (hours > 0) return `${hours}时${pad(mins)}分`;
+        return `${pad(mins)}:${pad(secs)}`;
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      // --- Storage Helpers (sandbox-safe) ---
+      function safeReadStorage(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+
+      function safeWriteStorage(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+        } catch (e) {
+          // Ignore storage errors in restricted environments
+        }
+      }
+
+      // --- Default Sample Schedules ---
+      function buildInitialSchedules() {
+        const now = new Date();
+        const todayStr = formatDateStr(now);
+        const tomorrowStr = addDaysToDateStr(todayStr, 1);
+
+        const in30Min = new Date(now.getTime() + 30 * 60 * 1000);
+        const in2Hours = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+
+        return [
+          {
+            id: 'sample-1',
+            title: '整理今日待办与重点目标',
+            date: formatDateStr(in30Min),
+            time: formatTimeStr(in30Min),
+            endTime: formatTimeStr(new Date(in30Min.getTime() + 30 * 60 * 1000)),
+            remindMinutes: 5,
+            category: 'work',
+            repeat: 'none',
+            notes: '核对今日需要完成的事项，优先处理重要任务。',
+            completed: false,
+            reminded: false,
+            snoozedUntil: null
+          },
+          {
+            id: 'sample-2',
+            title: '专注学习 / 阅读时间',
+            date: formatDateStr(in2Hours),
+            time: formatTimeStr(in2Hours),
+            endTime: formatTimeStr(new Date(in2Hours.getTime() + 60 * 60 * 1000)),
+            remindMinutes: 15,
+            category: 'study',
+            repeat: 'daily',
+            notes: '手机静音，专注完成核心章节并记录笔记。',
+            completed: false,
+            reminded: false,
+            snoozedUntil: null
+          },
+          {
+            id: 'sample-3',
+            title: '提交周度进展复盘',
+            date: tomorrowStr,
+            time: '10:00',
+            endTime: '11:00',
+            remindMinutes: 30,
+            category: 'important',
+            repeat: 'weekly',
+            notes: '提前准备数据摘要与下周计划。',
+            completed: false,
+            reminded: false,
+            snoozedUntil: null
+          }
+        ];
+      }
+
+      // --- App State ---
+      const todayDate = new Date();
+      const state = {
+        schedules: safeReadStorage(STORAGE_KEY, null) || buildInitialSchedules(),
+        settings: Object.assign({ soundEnabled: true, notifyEnabled: false }, safeReadStorage(SETTINGS_KEY, {})),
+        view: 'today',
+        category: 'all',
+        search: '',
+        selectedDate: formatDateStr(todayDate),
+        calendarYear: todayDate.getFullYear(),
+        calendarMonth: todayDate.getMonth(),
+        calendarExpanded: false,
+        searchOpen: false,
+        activeReminderId: null,
+        pendingDeleteId: null
+      };
+
+      // --- Web Audio API Chime ---
+      let audioCtx = null;
+      function playReminderChime() {
+        if (!state.settings.soundEnabled) return;
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          if (!audioCtx) audioCtx = new AudioContextClass();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+
+          const now = audioCtx.currentTime;
+          const notes = [523.25, 659.25, 783.99, 1046.5];
+          notes.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+            gain.gain.setValueAtTime(0.001, now + idx * 0.12);
+            gain.gain.exponentialRampToValueAtTime(0.18, now + idx * 0.12 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.12 + 0.45);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + idx * 0.12);
+            osc.stop(now + idx * 0.12 + 0.5);
+          });
+        } catch (e) {
+          // Ignore audio errors
+        }
+      }
+
+      // --- Toast ---
+      function showToast(message, type = 'info') {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const colors = {
+          info: 'bg-zinc-900 text-white',
+          success: 'bg-emerald-600 text-white',
+          warning: 'bg-amber-600 text-white',
+          error: 'bg-rose-600 text-white'
+        };
+        const el = document.createElement('div');
+        el.className = `pointer-events-auto px-4 py-2 rounded-full text-xs font-medium shadow-lg animate-sheet ${colors[type] || colors.info}`;
+        el.textContent = message;
+        container.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transition = 'opacity 0.25s ease';
+          setTimeout(() => el.remove(), 260);
+        }, 2400);
+      }
+
+      function persistState() {
+        safeWriteStorage(STORAGE_KEY, state.schedules);
+        safeWriteStorage(SETTINGS_KEY, state.settings);
+      }
+
+      // --- Master Render ---
+      function renderAll() {
+        renderSettingsUI();
+        renderHeaderAndNextReminder();
+        renderWeekStrip();
+        renderMonthCalendar();
+        renderFilters();
+        renderScheduleList();
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }
+
+      function renderSettingsUI() {
+        const soundIcon = document.getElementById('icon-sound');
+        const soundLabel = document.getElementById('label-sound');
+        if (soundIcon && soundLabel) {
+          soundIcon.setAttribute('data-lucide', state.settings.soundEnabled ? 'volume-2' : 'volume-x');
+          soundIcon.className = state.settings.soundEnabled ? 'w-4 h-4 text-indigo-600' : 'w-4 h-4 text-zinc-400';
+          soundLabel.textContent = state.settings.soundEnabled ? '已开启' : '已静音';
+          soundLabel.className = state.settings.soundEnabled ? 'text-xs font-semibold text-indigo-600' : 'text-xs font-medium text-zinc-400';
+        }
+
+        const notifyIcon = document.getElementById('icon-notify');
+        const notifyLabel = document.getElementById('label-notify');
+        if (notifyIcon && notifyLabel) {
+          const granted = state.settings.notifyEnabled && ('Notification' in window) && Notification.permission === 'granted';
+          notifyIcon.setAttribute('data-lucide', granted ? 'bell-ring' : 'bell');
+          notifyIcon.className = granted ? 'w-4 h-4 text-emerald-600' : 'w-4 h-4 text-zinc-400';
+          notifyLabel.textContent = granted ? '已开启' : '未开启';
+          notifyLabel.className = granted ? 'text-xs font-semibold text-emerald-600' : 'text-xs font-medium text-zinc-400';
+        }
+      }
+
+      function renderHeaderAndNextReminder() {
+        const now = new Date();
+        const todayStr = formatDateStr(now);
+
+        const headerTitle = document.getElementById('header-date-title');
+        const clockEl = document.getElementById('live-clock');
+        if (headerTitle) {
+          headerTitle.textContent = `${now.getMonth() + 1}月${now.getDate()}日`;
+        }
+        if (clockEl) {
+          clockEl.textContent = `周${WEEKDAYS_SHORT[now.getDay()]} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+        }
+
+        const todayPending = state.schedules.filter(s => !s.completed && s.date === todayStr).length;
+        const nowMs = now.getTime();
+        const upcomingReminders = state.schedules
+          .filter(s => !s.completed && !s.reminded && Number(s.remindMinutes) >= 0)
+          .map(s => ({ item: s, triggerMs: getReminderTimestamp(s) }))
+          .filter(x => x.triggerMs !== null && x.triggerMs >= nowMs - 60000)
+          .sort((a, b) => a.triggerMs - b.triggerMs);
+
+        const nextTitle = document.getElementById('next-reminder-title');
+        const nextMeta = document.getElementById('next-reminder-meta');
+        const countdownVal = document.getElementById('countdown-value');
+        const miniStats = document.getElementById('mini-stats');
+        const reminderDot = document.getElementById('reminder-dot');
+
+        if (miniStats) miniStats.textContent = `今日 ${todayPending} 待办`;
+
+        if (upcomingReminders.length > 0) {
+          const next = upcomingReminders[0];
+          const item = next.item;
+          if (nextTitle) nextTitle.textContent = item.title;
+          if (nextMeta) {
+            const remindText = item.snoozedUntil ? '稍后提醒' : (REMIND_LABELS[String(item.remindMinutes)] || '');
+            const dayTag = item.date === todayStr ? '今天' : item.date.slice(5);
+            nextMeta.textContent = `${dayTag} ${item.time} · ${remindText}`;
+          }
+          if (countdownVal) countdownVal.textContent = formatCountdown(next.triggerMs - nowMs);
+          if (reminderDot) reminderDot.className = 'w-2 h-2 rounded-full bg-indigo-500 shrink-0 dot-pulse';
+        } else {
+          if (nextTitle) nextTitle.textContent = '暂无待触发提醒';
+          if (nextMeta) nextMeta.textContent = '点击右下角 + 添加日程';
+          if (countdownVal) countdownVal.textContent = '--:--';
+          if (reminderDot) reminderDot.className = 'w-2 h-2 rounded-full bg-zinc-300 shrink-0';
+        }
+      }
+
+      // Build map of active schedule dates
+      function getActiveDateMap() {
+        const map = {};
+        state.schedules.forEach(s => {
+          if (s.completed) return;
+          if (!map[s.date]) map[s.date] = { count: 0, important: false };
+          map[s.date].count += 1;
+          if (s.category === 'important') map[s.date].important = true;
+        });
+        return map;
+      }
+
+      // --- 7-Day Mobile Week Strip ---
+      function renderWeekStrip() {
+        const strip = document.getElementById('week-strip');
+        if (!strip) return;
+
+        const base = parseDateStr(state.selectedDate);
+        const startOfWeek = new Date(base);
+        startOfWeek.setDate(base.getDate() - base.getDay()); // Sunday start
+
+        const todayStr = formatDateStr(new Date());
+        const dateMap = getActiveDateMap();
+
+        let html = '';
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(startOfWeek);
+          d.setDate(startOfWeek.getDate() + i);
+          const dateStr = formatDateStr(d);
+          const isSelected = dateStr === state.selectedDate;
+          const isToday = dateStr === todayStr;
+          const info = dateMap[dateStr];
+
+          const pillCls = isSelected
+            ? 'bg-zinc-900 text-white font-semibold'
+            : (isToday ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-zinc-700 hover:bg-zinc-100');
+
+          const dotHtml = info
+            ? `<span class="w-1 h-1 rounded-full mt-1 ${isSelected ? 'bg-white' : (info.important ? 'bg-rose-500' : 'bg-indigo-500')}"></span>`
+            : '<span class="w-1 h-1 mt-1"></span>';
+
+          html += `
+            <button type="button" data-date="${dateStr}" class="flex flex-col items-center py-1.5 rounded-2xl transition ${pillCls}">
+              <span class="text-[10px] ${isSelected ? 'text-zinc-300' : 'text-zinc-400'} mb-1">${WEEKDAYS_SHORT[i]}</span>
+              <span class="text-sm leading-none">${d.getDate()}</span>
+              ${dotHtml}
+            </button>
+          `;
+        }
+        strip.innerHTML = html;
+      }
+
+      // --- Expandable Month Calendar ---
+      function renderMonthCalendar() {
+        const label = document.getElementById('calendar-month-label');
+        const grid = document.getElementById('calendar-grid');
+        if (!label || !grid) return;
+
+        const year = state.calendarYear;
+        const month = state.calendarMonth;
+        label.textContent = `${year}年 ${month + 1}月`;
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const todayStr = formatDateStr(new Date());
+        const dateMap = getActiveDateMap();
+
+        let html = '';
+        for (let i = 0; i < firstDay; i++) {
+          html += '<div class="h-9"></div>';
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dateStr = `${year}-${pad(month + 1)}-${pad(day)}`;
+          const isSelected = dateStr === state.selectedDate;
+          const isToday = dateStr === todayStr;
+          const info = dateMap[dateStr];
+
+          let cls = 'h-9 w-full rounded-xl flex flex-col items-center justify-center transition ';
+          if (isSelected) cls += 'bg-zinc-900 text-white font-semibold';
+          else if (isToday) cls += 'bg-indigo-50 text-indigo-600 font-semibold';
+          else cls += 'text-zinc-700 hover:bg-zinc-100';
+
+          const dotHtml = info
+            ? `<span class="w-1 h-1 rounded-full mt-0.5 ${isSelected ? 'bg-white' : (info.important ? 'bg-rose-500' : 'bg-indigo-500')}"></span>`
+            : '<span class="w-1 h-1 mt-0.5"></span>';
+
+          html += `
+            <button type="button" data-date="${dateStr}" class="${cls}">
+              <span class="leading-none">${day}</span>
+              ${dotHtml}
+            </button>
+          `;
+        }
+        grid.innerHTML = html;
+      }
+
+      function renderFilters() {
+        document.querySelectorAll('.view-tab').forEach(btn => {
+          const active = btn.dataset.view === state.view;
+          btn.className = active
+            ? 'view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-900 text-white transition'
+            : 'view-tab shrink-0 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-500 hover:bg-zinc-100 transition';
+        });
+
+        document.querySelectorAll('.cat-pill').forEach(btn => {
+          const active = btn.dataset.cat === state.category;
+          btn.className = active
+            ? 'cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-600 transition'
+            : 'cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium text-zinc-400 hover:text-zinc-600 transition';
+        });
+      }
+
+      function getFilteredSchedules() {
+        const todayStr = formatDateStr(new Date());
+        const next7Str = addDaysToDateStr(todayStr, 7);
+        const query = state.search.trim().toLowerCase();
+
+        return state.schedules
+          .filter(item => {
+            if (state.view === 'completed') {
+              if (!item.completed) return false;
+            } else if (state.view === 'today') {
+              if (item.completed || item.date !== todayStr) return false;
+            } else if (state.view === 'selected') {
+              if (item.completed || item.date !== state.selectedDate) return false;
+            } else if (state.view === 'upcoming') {
+              if (item.completed || item.date < todayStr || item.date > next7Str) return false;
+            }
+
+            if (state.category !== 'all' && item.category !== state.category) return false;
+
+            if (query) {
+              const hay = `${item.title} ${item.notes || ''}`.toLowerCase();
+              if (!hay.includes(query)) return false;
+            }
+            return true;
+          })
+          .sort((a, b) => {
+            if (a.completed !== b.completed) return a.completed ? 1 : -1;
+            return `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`);
+          });
+      }
+
+      function renderScheduleList() {
+        const container = document.getElementById('schedule-list');
+        const summary = document.getElementById('list-summary');
+        if (!container) return;
+
+        const items = getFilteredSchedules();
+        if (summary) summary.textContent = `${items.length} 项`;
+
+        if (items.length === 0) {
+          container.innerHTML = `
+            <div class="py-14 text-center">
+              <div class="w-11 h-11 rounded-2xl bg-zinc-100 text-zinc-400 flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+              </div>
+              <p class="text-sm font-medium text-zinc-600">暂无日程安排</p>
+              <p class="text-xs text-zinc-400 mt-1">点击右下角 + 快速记录一条</p>
+            </div>
+          `;
+          return;
+        }
+
+        const nowMs = Date.now();
+        const todayStr = formatDateStr(new Date());
+
+        container.innerHTML = items.map(item => {
+          const cat = CATEGORY_META[item.category] || CATEGORY_META.work;
+          const startMs = parseScheduleDateTime(item.date, item.time).getTime();
+          const isOverdue = !item.completed && startMs < nowMs;
+          const timeRange = item.endTime ? `${item.time} - ${item.endTime}` : item.time;
+          const showDate = state.view !== 'today' && state.view !== 'selected';
+          const dateLabel = item.date === todayStr ? '今天' : item.date.slice(5);
+          const remindText = Number(item.remindMinutes) >= 0
+            ? (item.snoozedUntil ? '稍后提醒' : (item.reminded ? '已提醒' : REMIND_LABELS[String(item.remindMinutes)]))
+            : '';
+          const repeatText = REPEAT_LABELS[item.repeat] || '';
+
+          return `
+            <article class="group bg-white rounded-2xl border ${isOverdue ? 'border-amber-200/80' : 'border-zinc-200/70'} px-4 py-3.5 flex items-start gap-3 active:bg-zinc-50 transition">
+              <button type="button" data-action="toggle" data-id="${escapeHtml(item.id)}" aria-label="切换完成"
+                class="mt-0.5 w-5 h-5 rounded-full border-[1.5px] flex items-center justify-center shrink-0 transition ${item.completed ? 'bg-zinc-900 border-zinc-900 text-white' : 'border-zinc-300 hover:border-zinc-900'}">
+                ${item.completed ? '<i data-lucide="check" class="w-3 h-3"></i>' : ''}
+              </button>
+
+              <div data-action="edit" data-id="${escapeHtml(item.id)}" class="flex-1 min-w-0 cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full shrink-0 ${cat.dot}"></span>
+                  <h4 class="text-sm font-semibold truncate ${item.completed ? 'line-through text-zinc-400' : 'text-zinc-900'}">
+                    ${escapeHtml(item.title)}
+                  </h4>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 mt-1.5 text-[11px] text-zinc-400">
+                  <span class="font-medium ${isOverdue ? 'text-amber-600' : 'text-zinc-600'} tabular-nums">
+                    ${showDate ? escapeHtml(dateLabel) + ' ' : ''}${escapeHtml(timeRange)}
+                  </span>
+                  ${remindText ? `<span class="inline-flex items-center gap-0.5 ${!item.reminded && !item.completed ? 'text-indigo-500' : ''}"><i data-lucide="bell" class="w-3 h-3"></i>${escapeHtml(remindText)}</span>` : ''}
+                  ${repeatText ? `<span class="inline-flex items-center gap-0.5"><i data-lucide="repeat" class="w-3 h-3"></i>${repeatText}</span>` : ''}
+                </div>
+
+                ${item.notes ? `<p class="mt-1.5 text-xs text-zinc-500 line-clamp-2 break-words">${escapeHtml(item.notes)}</p>` : ''}
+              </div>
+
+              <button type="button" data-action="delete" data-id="${escapeHtml(item.id)}" aria-label="删除日程"
+                class="p-1.5 -mr-1 text-zinc-300 hover:text-rose-500 rounded-lg transition shrink-0">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </article>
+          `;
+        }).join('');
+      }
+
+      // --- Modals ---
+      function openScheduleModal(item = null) {
+        const modal = document.getElementById('modal-schedule');
+        const titleEl = document.getElementById('modal-title');
+        if (!modal) return;
+
+        const now = new Date();
+        const defaultTime = new Date(now.getTime() + 15 * 60 * 1000);
+
+        document.getElementById('field-id').value = item ? item.id : '';
+        document.getElementById('field-title').value = item ? item.title : '';
+        document.getElementById('field-date').value = item ? item.date : (state.view === 'selected' ? state.selectedDate : formatDateStr(now));
+        document.getElementById('field-time').value = item ? item.time : formatTimeStr(defaultTime);
+        document.getElementById('field-end-time').value = item ? (item.endTime || '') : '';
+        document.getElementById('field-remind').value = item ? String(item.remindMinutes) : '15';
+        document.getElementById('field-category').value = item ? item.category : 'work';
+        document.getElementById('field-repeat').value = item ? (item.repeat || 'none') : 'none';
+        document.getElementById('field-notes').value = item ? (item.notes || '') : '';
+
+        if (titleEl) titleEl.textContent = item ? '编辑日程' : '新建日程';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeScheduleModal() {
+        const modal = document.getElementById('modal-schedule');
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      function openSettingsModal() {
+        const modal = document.getElementById('modal-settings');
+        if (!modal) return;
+        renderSettingsUI();
+        if (window.lucide) window.lucide.createIcons();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeSettingsModal() {
+        const modal = document.getElementById('modal-settings');
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      function openConfirmDelete(id) {
+        const item = state.schedules.find(s => s.id === id);
+        if (!item) return;
+        state.pendingDeleteId = id;
+        const msg = document.getElementById('confirm-message');
+        if (msg) msg.textContent = `“${item.title}” 删除后将无法恢复。`;
+        const modal = document.getElementById('modal-confirm');
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+      }
+
+      function closeConfirmDelete() {
+        state.pendingDeleteId = null;
+        const modal = document.getElementById('modal-confirm');
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      }
+
+      // --- Reminder Engine ---
+      function triggerReminderPopup(item, isTest = false) {
+        state.activeReminderId = isTest ? '__test__' : item.id;
+        const modal = document.getElementById('modal-reminder');
+        const titleEl = document.getElementById('reminder-modal-title');
+        const timeEl = document.getElementById('reminder-modal-time');
+        const notesEl = document.getElementById('reminder-modal-notes');
+
+        if (titleEl) titleEl.textContent = item.title;
+        if (timeEl) timeEl.textContent = `${item.date} ${item.time}${item.endTime ? ' - ' + item.endTime : ''}`;
+        if (notesEl) {
+          if (item.notes) {
+            notesEl.textContent = item.notes;
+            notesEl.classList.remove('hidden');
+          } else {
+            notesEl.classList.add('hidden');
+          }
+        }
+
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+
+        playReminderChime();
+
+        if (state.settings.notifyEnabled && ('Notification' in window) && Notification.permission === 'granted') {
+          try {
+            new Notification(`日程提醒：${item.title}`, {
+              body: `${item.date} ${item.time}${item.notes ? ' — ' + item.notes : ''}`
+            });
+          } catch (e) {
+            // In-page modal already shown
+          }
+        }
+      }
+
+      function closeReminderModal() {
+        state.activeReminderId = null;
+        const modal = document.getElementById('modal-reminder');
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      }
+
+      function checkDueReminders() {
+        renderHeaderAndNextReminder();
+        if (state.activeReminderId) return;
+
+        const nowMs = Date.now();
+        for (const item of state.schedules) {
+          if (item.completed || item.reminded || Number(item.remindMinutes) < 0) continue;
+          const triggerMs = getReminderTimestamp(item);
+          if (triggerMs !== null && nowMs >= triggerMs && nowMs - triggerMs < 15 * 60 * 1000) {
+            item.reminded = true;
+            item.snoozedUntil = null;
+            persistState();
+            renderScheduleList();
+            triggerReminderPopup(item, false);
+            break;
+          }
+        }
+      }
+
+      function toggleComplete(id) {
+        const item = state.schedules.find(s => s.id === id);
+        if (!item) return;
+
+        item.completed = !item.completed;
+        if (item.completed && item.repeat && item.repeat !== 'none') {
+          const offsetDays = item.repeat === 'daily' ? 1 : 7;
+          const nextDate = addDaysToDateStr(item.date, offsetDays);
+          const exists = state.schedules.some(s => !s.completed && s.title === item.title && s.date === nextDate && s.time === item.time);
+          if (!exists) {
+            state.schedules.push({
+              id: 'sch-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+              title: item.title,
+              date: nextDate,
+              time: item.time,
+              endTime: item.endTime,
+              remindMinutes: item.remindMinutes,
+              category: item.category,
+              repeat: item.repeat,
+              notes: item.notes,
+              completed: false,
+              reminded: false,
+              snoozedUntil: null
+            });
+            showToast(`已完成，已自动生成下次日程 (${nextDate.slice(5)})`, 'success');
+          }
+        } else {
+          showToast(item.completed ? '已完成' : '已恢复待办', 'info');
+        }
+
+        persistState();
+        renderAll();
+      }
+
+      // --- Export / Import ---
+      function downloadFile(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      function exportJSON() {
+        downloadFile(`schedules_${formatDateStr(new Date())}.json`, JSON.stringify(state.schedules, null, 2), 'application/json');
+        showToast('已导出 JSON 备份', 'success');
+      }
+
+      function exportICS() {
+        const activeItems = state.schedules.filter(s => !s.completed);
+        if (activeItems.length === 0) {
+          showToast('没有可导出的未完成日程', 'warning');
+          return;
+        }
+        const toIcsDate = (dateStr, timeStr) => dateStr.replace(/-/g, '') + 'T' + timeStr.replace(':', '') + '00';
+        const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Schedule Reminder App//CN'];
+        activeItems.forEach(item => {
+          const dtStart = toIcsDate(item.date, item.time);
+          const endTime = item.endTime || formatTimeStr(new Date(parseScheduleDateTime(item.date, item.time).getTime() + 30 * 60 * 1000));
+          lines.push('BEGIN:VEVENT');
+          lines.push(`UID:${item.id}@schedule-reminder`);
+          lines.push(`DTSTART:${dtStart}`);
+          lines.push(`DTEND:${toIcsDate(item.date, endTime)}`);
+          lines.push(`SUMMARY:${(item.title || '').replace(/\n/g, ' ')}`);
+          if (item.notes) lines.push(`DESCRIPTION:${item.notes.replace(/\n/g, '\\n')}`);
+          if (Number(item.remindMinutes) >= 0) {
+            lines.push('BEGIN:VALARM');
+            lines.push(`TRIGGER:-PT${Number(item.remindMinutes)}M`);
+            lines.push('ACTION:DISPLAY');
+            lines.push(`DESCRIPTION:${(item.title || '').replace(/\n/g, ' ')}`);
+            lines.push('END:VALARM');
+          }
+          lines.push('END:VEVENT');
+        });
+        lines.push('END:VCALENDAR');
+        downloadFile(`schedules_${formatDateStr(new Date())}.ics`, lines.join('\r\n'), 'text/calendar;charset=utf-8');
+        showToast(`已导出 ${activeItems.length} 条日程 (.ics)`, 'success');
+      }
+
+      // --- Event Bindings ---
+      document.getElementById('btn-toggle-search').addEventListener('click', () => {
+        state.searchOpen = !state.searchOpen;
+        const wrap = document.getElementById('search-bar-wrap');
+        if (wrap) {
+          wrap.classList.toggle('hidden', !state.searchOpen);
+          if (state.searchOpen) document.getElementById('search-input').focus();
+        }
+      });
+
+      document.getElementById('btn-toggle-calendar').addEventListener('click', () => {
+        state.calendarExpanded = !state.calendarExpanded;
+        const monthWrap = document.getElementById('month-calendar-wrap');
+        const weekWrap = document.getElementById('week-strip-wrap');
+        if (monthWrap && weekWrap) {
+          monthWrap.classList.toggle('hidden', !state.calendarExpanded);
+          weekWrap.classList.toggle('hidden', state.calendarExpanded);
+        }
+      });
+
+      document.getElementById('btn-open-settings').addEventListener('click', openSettingsModal);
+      document.getElementById('btn-close-settings').addEventListener('click', closeSettingsModal);
+      document.getElementById('modal-settings').addEventListener('click', (e) => {
+        if (e.target.id === 'modal-settings') closeSettingsModal();
+      });
+
+      document.getElementById('btn-add-schedule').addEventListener('click', () => openScheduleModal(null));
+      document.getElementById('btn-close-modal').addEventListener('click', closeScheduleModal);
+      document.getElementById('btn-cancel-modal').addEventListener('click', closeScheduleModal);
+      document.getElementById('modal-schedule').addEventListener('click', (e) => {
+        if (e.target.id === 'modal-schedule') closeScheduleModal();
+      });
+
+      document.getElementById('schedule-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = document.getElementById('field-id').value;
+        const title = document.getElementById('field-title').value.trim();
+        const date = document.getElementById('field-date').value;
+        const time = document.getElementById('field-time').value;
+        const endTime = document.getElementById('field-end-time').value;
+        const remindMinutes = Number(document.getElementById('field-remind').value);
+        const category = document.getElementById('field-category').value;
+        const repeat = document.getElementById('field-repeat').value;
+        const notes = document.getElementById('field-notes').value.trim();
+
+        if (!title || !date || !time) {
+          showToast('请填写标题、日期和时间', 'warning');
+          return;
+        }
+
+        if (id) {
+          const idx = state.schedules.findIndex(s => s.id === id);
+          if (idx !== -1) {
+            state.schedules[idx] = Object.assign({}, state.schedules[idx], {
+              title, date, time, endTime, remindMinutes, category, repeat, notes,
+              reminded: false,
+              snoozedUntil: null
+            });
+            showToast('日程已更新', 'success');
+          }
+        } else {
+          state.schedules.push({
+            id: 'sch-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+            title, date, time, endTime, remindMinutes, category, repeat, notes,
+            completed: false,
+            reminded: false,
+            snoozedUntil: null
+          });
+          showToast('已添加日程', 'success');
+        }
+
+        state.selectedDate = date;
+        persistState();
+        closeScheduleModal();
+        renderAll();
+      });
+
+      // Settings actions
+      document.getElementById('btn-sound-toggle').addEventListener('click', () => {
+        state.settings.soundEnabled = !state.settings.soundEnabled;
+        persistState();
+        renderSettingsUI();
+        if (window.lucide) window.lucide.createIcons();
+        if (state.settings.soundEnabled) {
+          playReminderChime();
+          showToast('已开启提示音', 'info');
+        } else {
+          showToast('已关闭提示音', 'info');
+        }
+      });
+
+      document.getElementById('btn-notify-toggle').addEventListener('click', () => {
+        if (!('Notification' in window)) {
+          showToast('当前浏览器不支持桌面通知，将使用页内弹窗', 'warning');
+          return;
+        }
+        if (Notification.permission === 'granted') {
+          state.settings.notifyEnabled = !state.settings.notifyEnabled;
+          persistState();
+          renderSettingsUI();
+          if (window.lucide) window.lucide.createIcons();
+          showToast(state.settings.notifyEnabled ? '已开启浏览器通知' : '已关闭浏览器通知', 'info');
+          return;
+        }
+        if (Notification.permission === 'denied') {
+          showToast('通知权限已被拒绝，请在浏览器设置中开启', 'warning');
+          return;
+        }
+        try {
+          Notification.requestPermission().then(perm => {
+            if (perm === 'granted') {
+              state.settings.notifyEnabled = true;
+              persistState();
+              renderSettingsUI();
+              if (window.lucide) window.lucide.createIcons();
+              showToast('通知权限已开启', 'success');
+            } else {
+              showToast('未授予通知权限，将使用页内弹窗', 'info');
+            }
+          });
+        } catch (e) {
+          showToast('当前环境将使用页内弹窗提醒', 'info');
+        }
+      });
+
+      document.getElementById('btn-test-reminder').addEventListener('click', () => {
+        closeSettingsModal();
+        const now = new Date();
+        triggerReminderPopup({
+          id: '__test__',
+          title: '测试日程提醒',
+          date: formatDateStr(now),
+          time: formatTimeStr(now),
+          notes: '日程到点后会弹出此提醒并播放提示音。'
+        }, true);
+      });
+
+      // Reminder modal buttons
+      document.getElementById('btn-reminder-snooze').addEventListener('click', () => {
+        if (state.activeReminderId && state.activeReminderId !== '__test__') {
+          const item = state.schedules.find(s => s.id === state.activeReminderId);
+          if (item) {
+            item.reminded = false;
+            item.snoozedUntil = Date.now() + 5 * 60 * 1000;
+            persistState();
+            renderAll();
+          }
+        }
+        closeReminderModal();
+        showToast('5 分钟后再次提醒', 'info');
+      });
+
+      document.getElementById('btn-reminder-done').addEventListener('click', () => {
+        const id = state.activeReminderId;
+        closeReminderModal();
+        if (id && id !== '__test__') {
+          const item = state.schedules.find(s => s.id === id);
+          if (item && !item.completed) toggleComplete(id);
+        } else {
+          showToast('测试提醒已完成', 'success');
+        }
+      });
+
+      document.getElementById('btn-reminder-dismiss').addEventListener('click', closeReminderModal);
+
+      // Week strip & Month calendar date selection
+      function selectDate(dateStr) {
+        state.selectedDate = dateStr;
+        const d = parseDateStr(dateStr);
+        state.calendarYear = d.getFullYear();
+        state.calendarMonth = d.getMonth();
+        state.view = dateStr === formatDateStr(new Date()) ? 'today' : 'selected';
+        renderAll();
+      }
+
+      document.getElementById('week-strip').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-date]');
+        if (btn) selectDate(btn.dataset.date);
+      });
+
+      document.getElementById('calendar-grid').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-date]');
+        if (btn) selectDate(btn.dataset.date);
+      });
+
+      document.getElementById('btn-cal-prev').addEventListener('click', () => {
+        state.calendarMonth -= 1;
+        if (state.calendarMonth < 0) {
+          state.calendarMonth = 11;
+          state.calendarYear -= 1;
+        }
+        renderMonthCalendar();
+      });
+
+      document.getElementById('btn-cal-next').addEventListener('click', () => {
+        state.calendarMonth += 1;
+        if (state.calendarMonth > 11) {
+          state.calendarMonth = 0;
+          state.calendarYear += 1;
+        }
+        renderMonthCalendar();
+      });
+
+      document.getElementById('btn-cal-today').addEventListener('click', () => {
+        selectDate(formatDateStr(new Date()));
+      });
+
+      // Tabs & Filters
+      document.getElementById('view-tabs').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-view]');
+        if (!btn) return;
+        state.view = btn.dataset.view;
+        renderAll();
+      });
+
+      document.getElementById('category-filters').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-cat]');
+        if (!btn) return;
+        state.category = btn.dataset.cat;
+        renderAll();
+      });
+
+      // Search
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('btn-clear-search');
+      searchInput.addEventListener('input', (e) => {
+        state.search = e.target.value;
+        if (clearSearchBtn) clearSearchBtn.classList.toggle('hidden', !state.search);
+        renderScheduleList();
+        if (window.lucide) window.lucide.createIcons();
+      });
+      clearSearchBtn.addEventListener('click', () => {
+        state.search = '';
+        searchInput.value = '';
+        clearSearchBtn.classList.add('hidden');
+        renderScheduleList();
+        if (window.lucide) window.lucide.createIcons();
+      });
+
+      // Schedule list actions
+      document.getElementById('schedule-list').addEventListener('click', (e) => {
+        const target = e.target.closest('[data-action]');
+        if (!target) return;
+        const action = target.dataset.action;
+        const id = target.dataset.id;
+
+        if (action === 'toggle') {
+          toggleComplete(id);
+        } else if (action === 'edit') {
+          const item = state.schedules.find(s => s.id === id);
+          if (item) openScheduleModal(item);
+        } else if (action === 'delete') {
+          openConfirmDelete(id);
+        }
+      });
+
+      // Confirm delete
+      document.getElementById('btn-confirm-cancel').addEventListener('click', closeConfirmDelete);
+      document.getElementById('btn-confirm-ok').addEventListener('click', () => {
+        if (state.pendingDeleteId) {
+          state.schedules = state.schedules.filter(s => s.id !== state.pendingDeleteId);
+          persistState();
+          showToast('已删除日程', 'info');
+        }
+        closeConfirmDelete();
+        renderAll();
+      });
+
+      // Export & Import
+      document.getElementById('btn-export-json').addEventListener('click', exportJSON);
+      document.getElementById('btn-export-ics').addEventListener('click', exportICS);
+      document.getElementById('btn-import-json').addEventListener('click', () => {
+        document.getElementById('input-import-file').click();
+      });
+
+      document.getElementById('input-import-file').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(ev.target.result);
+            if (!Array.isArray(parsed)) throw new Error('Invalid format');
+            const valid = parsed.filter(item => item && item.title && item.date && item.time);
+            if (valid.length === 0) {
+              showToast('未找到有效日程', 'warning');
+              return;
+            }
+            const existingIds = new Set(state.schedules.map(s => s.id));
+            let added = 0;
+            valid.forEach(item => {
+              const id = item.id && !existingIds.has(item.id)
+                ? item.id
+                : 'imp-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6);
+              existingIds.add(id);
+              state.schedules.push({
+                id,
+                title: String(item.title),
+                date: String(item.date),
+                time: String(item.time),
+                endTime: item.endTime ? String(item.endTime) : '',
+                remindMinutes: Number.isFinite(Number(item.remindMinutes)) ? Number(item.remindMinutes) : 15,
+                category: CATEGORY_META[item.category] ? item.category : 'work',
+                repeat: ['none', 'daily', 'weekly'].includes(item.repeat) ? item.repeat : 'none',
+                notes: item.notes ? String(item.notes) : '',
+                completed: Boolean(item.completed),
+                reminded: Boolean(item.reminded),
+                snoozedUntil: item.snoozedUntil || null
+              });
+              added += 1;
+            });
+            persistState();
+            renderAll();
+            closeSettingsModal();
+            showToast(`已导入 ${added} 条日程`, 'success');
+          } catch (err) {
+            showToast('导入失败，请选择有效 JSON 文件', 'error');
+          } finally {
+            e.target.value = '';
+          }
+        };
+        reader.readAsText(file);
+      });
+
+      // Esc key closes modals
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeScheduleModal();
+          closeSettingsModal();
+          closeConfirmDelete();
+        }
+      });
+
+      // Ticker
+      let reminderTimer = null;
+      function startTicker() {
+        if (reminderTimer) clearInterval(reminderTimer);
+        reminderTimer = setInterval(checkDueReminders, 1000);
+      }
+
+      renderAll();
+      startTicker();
+    })();
+  </script>
+</body>
+</html>
